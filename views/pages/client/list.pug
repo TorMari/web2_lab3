@@ -1,0 +1,23 @@
+extends ../../layout
+
+block content
+  h2 Clients
+
+  a(href='/client/add' class="btn btn-success") Add
+  
+  table(class="table")
+    thead
+      tr
+        th ID
+        th Name
+        th Code
+        th Options
+    tbody
+      each type in clients
+        tr
+          td #{type.id}
+          td #{type.name}
+          td #{type.code}
+          td
+            a(href=`/client/edit/${type.id}` class="btn btn-warning") Edit
+            a(href=`/client/remove/${type.id}` class="btn btn-danger") Delete
