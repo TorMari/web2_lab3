@@ -1,7 +1,9 @@
 extends ../../layout
 
+
 block content
-  div(class='col-md-6')
+  h2(id='title') Edit the client
+  div(class='container' id='cont')
     form(id='client-edit-form' name='client-edit-form' class='form-horizontal' method="POST" action='')
       input(id='id' name='id' value=$fn.getPropOrDefault(newclient, 'id', client.id) type='hidden')
       div(class='form-group')
@@ -11,9 +13,9 @@ block content
           input(id='name' name='name' value=$fn.getPropOrDefault(newclient, 'name', client.name) class='form-control')
       div(class='form-group')
         div(class='col-md-3')
-          label(for='code') Code
+          label(for='budget') Budget
         div(class='col-md-9')
-          input(id='code' name='code' value=$fn.getPropOrDefault(newclient, 'code', client.code) class='form-control')
+          input(id='budget' name='budget' value=$fn.getPropOrDefault(newclient, 'budget', client.budget) class='form-control')
       div(class='form-group')
         div(class='col-md-12')
-          button(type='submit' class='btn btn-info') Update
+          button(type='submit' class='btn btn-info') Edit

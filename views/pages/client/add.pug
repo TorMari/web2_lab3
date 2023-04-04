@@ -1,18 +1,19 @@
 extends ../../layout
 
 block content
-  div(class='col-md-6')
-    form(id='client-add-form' name='client-add-form' class='form-horizontal' method="POST" action='')
-      div(class='form-group')
-        div(class='col-md-3')
-          label(for='name') Name
-        div(class='col-md-9')
-          input(id='name' name='name' value=$fn.getPropOrDefault(newclient, 'name') class='form-control')
-      div(class='form-group')
-        div(class='col-md-3')
-          label(for='code') Code
-        div(class='col-md-9')
-          input(id='code' name='code' value=$fn.getPropOrDefault(newclient, 'code') class='form-control')
-      div(class='form-group')
-        div(class='col-md-12')
-          button(type='submit' class='btn btn-primary') Create
+   h2(id='title') Add new client
+   div(class='container' id='cont')
+      form(id='client-add-form' name='client-add-form' class='form-horizontal' method="POST" action='')
+         div(class='form-group')
+         div(class='col-md-3')
+            label(for='name') Name
+         div(class='col-md-9')
+            input(id='name' name='name' value=$fn.getPropOrDefault(newclient, 'name') class='form-control')
+         div(class='form-group')
+         div(class='col-md-3')
+            label(for='budget') Budget
+         div(class='col-md-9')
+            input(id='budget' name='budget' value=$fn.getPropOrDefault(newclient, 'budget') class='form-control')
+         div(class='form-group')
+         div(class='col-md-12')
+            button(type='submit' class='btn btn-primary') Create

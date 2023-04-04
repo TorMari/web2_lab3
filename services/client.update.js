@@ -6,7 +6,7 @@ const client = require('./../models/client')
 module.exports = function (data) {
   const clientData = {
     name: data.name,
-    code: data.code
+    budget: data.budget
   }
 
   return new Promise((resolve, reject) => {

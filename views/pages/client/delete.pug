@@ -1,12 +1,15 @@
 extends ../../layout
 
 block content
-  div(class='col-md-6')
-    form(id='client-delete-form' name='client-delete-form' class='form-horizontal' method="POST" action='')
-      input(id='id' type="hidden" name='id' value=client.id class='form-control')
-      div(class='form-group')
-        div(class='col-md-12')
-          strong #{client.name} #{client.code}?
-      div(class='form-group')
-        div(class='col-md-12')
-          button(type='submit' class='btn btn-primary') Delete
+   h2(id='title') Delete the client
+   div(class='container' id='cl_cont')
+      form(id='client-delete-form' name='client-delete-form' class='form-horizontal' method="POST" action='')
+         input(id='id' type="hidden" name='id' value=client.id class='form-control')
+         div(class='form-group')
+         div(class='col-md-12') 
+            h5 Do you really want to delete client "#{client.name}" with budget #{client.budget}$?
+         div(class='form-group')
+         div(class='col-md-12')
+            a(href=`/client/list` class="btn btn-success" id = 'del_btn') No
+            button(type='submit' class='btn btn-danger' id= 'del_btn') Delete
+            

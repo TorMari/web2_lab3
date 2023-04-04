@@ -32,10 +32,10 @@ module.exports = {
   postCreateclient: [
     body('name')
       .isLength({ min: 1 }).trim().withMessage('Name field must be specified.'),
-    body('code')
-      .isLength({ min: 1 }).trim().withMessage('Code field must be specified.'),
+    body('budget')
+      .isLength({ min: 1 }).trim().withMessage('Budget field must be specified.'),
     sanitizeBody('name').escape(),
-    sanitizeBody('code').escape(),
+    sanitizeBody('budget').escape(),
     (req, res) => {
       const clientData = req.body
       const errors = validationResult(req)
@@ -43,7 +43,7 @@ module.exports = {
       if (errors.isEmpty()) {
         clientCreateService(req.body)
           .then(clientData => {
-            req.flash('info', `Location Type "${clientData.name}" is Added`)
+            req.flash('info', `Client "${clientData.name}" is Added`)
             res.redirect('/client/list')
           })
           .catch(error => {
@@ -80,10 +80,10 @@ module.exports = {
   putUpdateclient: [
     body('name')
       .isLength({ min: 1 }).trim().withMessage('Name field must be specified.'),
-    body('code')
-      .isLength({ min: 1 }).trim().withMessage('Code field must be specified.'),
+    body('budget')
+      .isLength({ min: 1 }).trim().withMessage('Budget field must be specified.'),
     sanitizeBody('name').escape(),
-    sanitizeBody('code').escape(),
+    sanitizeBody('budget').escape(),
     (req, res, next) => {
       const clientData = req.body
 
@@ -91,7 +91,7 @@ module.exports = {
       if (errors.isEmpty()) {
         clientUpdateService(clientData)
           .then(client => {
-            req.flash('info', `Location Type "#${client.id} ${client.name}" is Updated`)
+            req.flash('info', `Client "#${client.id} ${client.name}" is Updated`)
             res.redirect('/client/list')
           })
           .catch(error => {
@@ -130,7 +130,7 @@ module.exports = {
   deleteclient(req, res, next) {
     clientDeleteService(req.body)
       .then(client => {
-        req.flash('info', `Location Type "#${client.id} ${client.name}" is Deleted`)
+        req.flash('info', `Client "#${client.id} ${client.name}" is Deleted`)
         res.redirect('/client/list')
       })
       .catch(error => {
